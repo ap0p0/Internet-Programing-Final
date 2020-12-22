@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zadaca3 Random Number</title>
+    <script type="text/javascript">
+     function RandomNumber(){
+        
+        if (window.XMLHttpRequest) {
+            xmlhttp =  new XMLHttpRequest(); //Not IE
+        } else if(window.ActiveXObject) {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); //IE
+        } else {
+            alert("Your browser doesn't support the XmlHttpRequest object.");
+        }
+
+        xmlhttp.onreadystatechange=function(){
+    	if (xmlhttp.readyState==4 && xmlhttp.status==200){
+		    document.getElementById("EndNumber").innerHTML=xmlhttp.responseText;
+    	}	
+  	}
+	xmlhttp.open("GET","RandomNumber.php",true);
+	xmlhttp.send();
+    }
+
+    </script>
+</head>
+
+<body>
+
+        
+        <button type="button" onclick="RandomNumber()">Get Random Number</button>
+        <br>
+        <br>
+        <strong><div id="EndNumber" >&nbsp;</div></strong>
+        
+        
+
+</body>
+
+
+
+
+
+
+

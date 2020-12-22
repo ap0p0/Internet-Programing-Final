@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zadaca2 Read</title>
+    <script type="text/javascript">
+        function ReadFile(){
+            fileToRead=document.getElementById("inputFile").value
+        if (window.XMLHttpRequest) {
+                xmlhttp =  new XMLHttpRequest(); //Not IE
+            } else if(window.ActiveXObject) {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); //IE
+            } else {
+                alert("Your browser doesn't support the XmlHttpRequest object.");
+            }
+    
+        xmlhttp.onreadystatechange=function(){
+          if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById("textResult").innerHTML=xmlhttp.responseText;
+            }	
+          }
+        xmlhttp.open("GET","Exam.txt",true);
+        xmlhttp.send();
+        }
+    
+        </script>
+</head>
+<body>
+    
+    <div id="textResult"  style="width: 60%; text-align: center; font-size: medium;">&nbsp;</div>
+
+</body>
+</html>

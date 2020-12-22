@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>zadaca 1 exchange</title>
+    <script type="text/javascript">
+        function ExchangeRate(){
+            exOne=document.getElementById("getFahrenheit").value
+            if (window.XMLHttpRequest){
+                  xmlhttp=new XMLHttpRequest();
+              }else {
+                  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+              }
+            xmlhttp.onreadystatechange=function(){
+              if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                    document.getElementById("setCelsius").innerHTML=xmlhttp.responseText;
+                }	
+              }
+            xmlhttp.open("GET","exchangerate.php?fahrenheit="+exOne, true);
+            xmlhttp.send();
+        }
+        </script>
+</head>
+<body style="text-align: center;">
+    
+    <input  id="getFahrenheit" type="number" style="width: 250px;"  placeholder="Fahrenheit ">
+
+    <button class="btn btn-outline-primary" type="button" onclick="ExchangeRate()">Exchange</button>
+    <input id="setCelsius" type="text" disabled  style="width: 250px"  placeholder="Celsius ">
+
+
+
+
+
+</body>
+</html>
